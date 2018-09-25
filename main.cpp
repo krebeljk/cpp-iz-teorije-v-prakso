@@ -7,8 +7,8 @@ int main(){
 
 	eb.print();
 
-  //print(english_board); // english_board->print(); ??
-  //std::cout << "Peg count: " << english_board.peg_count() << "\n";
+
+    std::cout << "Peg count: " << eb.pegCount() << "\n";
 
 // Output
 //

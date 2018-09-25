@@ -84,6 +84,27 @@ public:
 
 			std::cout << "\n";
 		}
+	
+	}
+
+	int pegCount() {
+
+		int count = 0;
+
+		for (int j = maxY_ - 1; j >= 0; j--)
+		{
+			for (int i = 0; i < maxX_; i++)
+			{
+				if (state_[i][j] > -1)
+				{
+					count++;
+				}
+			}
+
+			
+		}
+
+		return count;
 	}
 
 };
