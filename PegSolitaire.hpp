@@ -49,7 +49,7 @@ public:
 
 
 
-	void print() {
+	void printNum() {
 	
 		for (int j = maxY_-1; j >= 0; j--)
 		{
@@ -58,6 +58,27 @@ public:
 
 				//std::cout << "i" << i << "j" << j << " ";
 				std::cout << state_[i][j];
+
+			}
+
+			std::cout << "\n";
+		}
+	}
+
+	void print() {
+
+		for (int j = maxY_ - 1; j >= 0; j--)
+		{
+			for (int i = 0; i < maxX_; i++)
+			{
+				int peg = state_[i][j];
+
+				char rep = ' ';
+
+				if (peg == 0)
+					rep = '.';
+
+				std::cout << rep;
 
 			}
 
