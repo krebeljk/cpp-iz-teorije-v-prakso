@@ -12,9 +12,8 @@ private:
 
 public:
 	EBoard():
-		maxX_(9),
-		maxY_(9),
-		thr_(3),
+		maxX_(7),
+		maxY_(7),
 		state_()
 	{
 		for (int i = 0; i < maxX_; i++)//vrsta
@@ -23,29 +22,31 @@ public:
 			{
 
 				// SL
-				if (i < thr_ && j < thr_)
+				if (i < 2 && j < 2)
 					state_[i][j] = -1;
 
 				// SD
-				if (i >= 2*thr_ && j < thr_)
+				if (i >= 5 && j < 2)
 					state_[i][j] = -1;
 				
 				// ZL
-				if (i < thr_ && j >= 2*thr_)
+				if (i < 2 && j >= 5)
 					state_[i][j] = -1;
 
-				if (i >= 2*thr_ && j >= 2*thr_)
+				// ZD
+				if (i >= 5 && j >= 5)
 					state_[i][j] = -1;
-
 			}
 		}
+
+
+		state_[3][3] = 1;
 
 
 	
 	
 	};
 
-	~EBoard() {};
 
 
 
@@ -101,7 +102,6 @@ public:
 				}
 			}
 
-			
 		}
 
 		return count;
