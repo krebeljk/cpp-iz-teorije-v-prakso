@@ -51,11 +51,12 @@ public:
 
 	void print() {
 	
-		for (int i = 0; i < maxX_; i++)//vrsta
+		for (int j = maxY_-1; j >= 0; j--)
 		{
-			for (int j = 0; j < maxY_; j++)//stolpec
+			for (int i = 0; i < maxX_; i++)
 			{
 
+				//std::cout << "i" << i << "j" << j << " ";
 				std::cout << state_[i][j];
 
 			}
