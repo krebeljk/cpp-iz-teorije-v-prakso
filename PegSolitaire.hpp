@@ -1,4 +1,5 @@
 #include <array>
+#include <iostream>
 
 class EBoard
 {
@@ -17,6 +18,7 @@ public:
 		state_()
 	{
 		for (int i = 0; i < maxX_; i++)//vrsta
+		{
 			for (int j = 0; j < maxY_; j++)//stolpec
 			{
 
@@ -36,12 +38,30 @@ public:
 					state_[i][j] = -1;
 
 			}
+		}
+
+
 	
 	
 	};
+
 	~EBoard() {};
 
 
 
+	void print() {
+	
+		for (int i = 0; i < maxX_; i++)//vrsta
+		{
+			for (int j = 0; j < maxY_; j++)//stolpec
+			{
+
+				std::cout << state_[i][j];
+
+			}
+
+			std::cout << "\n";
+		}
+	}
 
 };

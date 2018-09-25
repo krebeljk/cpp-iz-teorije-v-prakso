@@ -5,7 +5,7 @@ int main(){
 
 	EBoard eb;
 
-	//eb.print();
+	eb.print();
 
   //print(english_board); // english_board->print(); ??
   //std::cout << "Peg count: " << english_board.peg_count() << "\n";
