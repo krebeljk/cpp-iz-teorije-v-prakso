@@ -39,6 +39,9 @@ private:
 	//count the pegs
 	int countPegs();
 
+	// is move valid
+	bool validMove();
+
 
 public:
 
@@ -57,10 +60,7 @@ public:
 	// update move intent (wish)
 	// is false if exhausted
 	bool nextValidMoveIntent();
-
-	// is move valid
-	bool validMove();
-
+	
 	// make move
 	void makeMove();
 
