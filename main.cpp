@@ -1,4 +1,4 @@
-#include "PegSolitaire.hpp"
+#include "EBoard.hpp"
 #include <iostream> 
 
 int main(){
