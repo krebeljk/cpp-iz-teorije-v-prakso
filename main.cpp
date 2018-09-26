@@ -10,8 +10,6 @@ int main(){
 
     //std::cout << "Peg count: " << eb.pegCount() << "\n";
 
-	eb.nextHole();
-
 	std::cout << "dir vld: " << eb.validMove();
 
 

@@ -24,6 +24,9 @@ private:
 	// peg count - solution generation
 	int pegCount_;
 
+	// increment solState_ (false if no more holes)
+	bool nextHole();
+
 public:
 
 	// Constructor
@@ -38,8 +41,8 @@ public:
 	// peg count
     int pegCount();
 
-	// increment solState_ (false if no more holes)
-	bool nextHole();
+	// update move
+	bool updateMove();
 
 	// is move valid
 	bool validMove();

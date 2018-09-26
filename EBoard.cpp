@@ -202,3 +202,22 @@ bool EBoard::validMove() {
 	return false;
 }
 
+bool EBoard::updateMove() {
+	// enter at lease once
+	do {
+		if (solState_[2] < 3) // can change direction clockwise
+		{
+			solState_[2]++; // next direction
+		} // tried all directions for this hole
+		else if (nextHole()) //moving to next hole (if it exists)
+		{
+			solState_[2] = 0;// reset direction
+		}
+		else // no next hole
+		{
+			return false;
+		}// move was incremented
+	} while (!validMove()); // increment again if move not valid
+
+	return true; // success
+}
