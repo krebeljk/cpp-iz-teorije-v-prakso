@@ -6,12 +6,14 @@
 
 int main(){
 
-	std::vector<EBoard> seq{EBoard()};
-
-	seq.back().print();
+	std::array<EBoard,32> seq;
 
 	// state index
 	int ind = 0;
+
+	seq[ind] = EBoard();
+
+	seq[ind].print();
 
 	// solution control
 	bool solve = true;
@@ -23,13 +25,12 @@ int main(){
 	{
 		if(seq[ind].nextValidMoveIntent())
 		{ 
-			seq.push_back(seq[ind]);
 			ind++;
+			seq[ind] = seq[ind-1];
 			seq[ind].makeMove();
 		}
-		else if (seq.capacity()>0)
+		else if (ind>0)
 		{
-			seq.pop_back();
 			ind--;
 		}
 		else
@@ -41,13 +42,13 @@ int main(){
 		//std::this_thread::sleep_for(std::chrono::seconds(1));
 		//seq.back().print();
 		
-		if (loops % 10000 == 0)
+		if (loops % 100000 == 0)
 		{
 			std::cout << "loops " << loops << "\n";
 			std::cout << "moves " << ind << "\n";
 		}
 
-		if (seq.back().pegCount() == 1)
+		if (seq[ind].pegCount() == 1)
 		{
 			break;
 		}
