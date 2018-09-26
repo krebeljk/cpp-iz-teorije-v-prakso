@@ -264,6 +264,9 @@ void EBoard::makeMove() {
 
 	// lost a peg
 	pegCount_--;
+
+	// back to the start of move attempts
+	solState_ = { 0, 0, 0 };
 }
 
 bool EBoard::exhausted() {
