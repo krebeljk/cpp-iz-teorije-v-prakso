@@ -41,6 +41,11 @@ int main(){
 			std::cout << "moves " << ind << "\n";
 		}
 
+		if (seq.back().pegCount() == 1)
+		{
+			break;
+		}
+
 	}
 
 	for (auto &st : seq)
