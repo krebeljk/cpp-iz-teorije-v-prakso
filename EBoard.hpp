@@ -24,6 +24,11 @@ private:
 	// peg count - solution generation
 	int pegCount_;
 
+	// exhausted possible moves
+	bool exhausted_;
+
+	// Private methods
+
 	// increment solState_ (false if no more holes)
 	bool nextHole();
 
@@ -33,6 +38,7 @@ private:
 
 	//count the pegs
 	int countPegs();
+
 
 public:
 
@@ -56,6 +62,8 @@ public:
 
 	// make move
 	void makeMove();
+
+	
 
 };
 

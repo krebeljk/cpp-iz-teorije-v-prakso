@@ -14,7 +14,7 @@ int main(){
 
 	std::cout << "make move\n";
 
-	eb.updateMove();
+	eb.updateMoveIntent();
 
 	eb.makeMove();
 

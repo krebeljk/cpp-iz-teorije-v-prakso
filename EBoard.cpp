@@ -6,7 +6,8 @@ EBoard::EBoard() :
 		matN_(7),
 		state_(),
 	    solState_{ 0,0,0 },
-	    pegCount_(0)
+	    pegCount_(0),
+	    exhausted_(false)
 {
 	for (int i = 0; i < matN_; i++)//vrsta
 	{
@@ -230,6 +231,7 @@ bool EBoard::updateMoveIntent() {
 		}
 		else // no next hole
 		{
+			exhausted_ = true;
 			return false;
 		}// move was incremented
 	} while (!validMove()); // increment again if move not valid
