@@ -14,6 +14,9 @@ int main(){
 	// solution control
 	bool solve = true;
 
+	// count loops
+	int loops = 0;
+
 	while (solve)
 	{
 		if(seq[ind].nextValidMoveIntent())
@@ -31,7 +34,13 @@ int main(){
 		{
 			solve = false;
 		}
-		std::cout << "i " << ind;
+		
+		if (loops % 1000000 == 0)
+		{
+			std::cout << "loops " << loops << "\n";
+			std::cout << "moves " << ind << "\n";
+		}
+
 	}
 
 	for (auto &st : seq)
