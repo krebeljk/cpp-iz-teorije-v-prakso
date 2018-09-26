@@ -27,6 +27,10 @@ private:
 	// increment solState_ (false if no more holes)
 	bool nextHole();
 
+	// get neighbour indices based on solution state
+	void makeNeighbours(int& I1, int& J1,
+		                int& I2, int& J2);
+
 public:
 
 	// Constructor
@@ -46,7 +50,6 @@ public:
 
 	// is move valid
 	bool validMove();
-
 
 };
 

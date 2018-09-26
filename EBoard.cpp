@@ -134,26 +134,15 @@ bool EBoard::nextHole() {
 	return found;
 }
 
-bool EBoard::validMove() {
-
-	// CREATE POINTS (indices of pegs)
-
-	// here (hole index pair)
-	int I0 = solState_[0];
-	int	J0 = solState_[1];
-
-	// init neighbours by copy
-	auto I1 = I0; // neighbour 1
-	auto J1 = J0; // neighbour 1
-	auto I2 = I0; // neighbour 1
-	auto J2 = J0; // neighbour 1
+void EBoard::makeNeighbours(int& I1, int& J1,
+	                        int& I2, int& J2) {
 
 	// set neighbour points in current direction
 	switch (solState_[2])
 	{
 	case 0:	// dir 0: +J (next col)
 		J1++;
-	    J2 += 2;
+		J2 += 2;
 		break;
 	case 1:	// dir 1: -I (prev row)
 		I1--;
@@ -171,6 +160,24 @@ bool EBoard::validMove() {
 		std::cout << "ERROR: solState_[2] out of bounds in EBoard::validateCurrentDir()\n";
 		break;
 	}
+
+}
+
+bool EBoard::validMove() {
+
+	// CREATE POINTS (indices of pegs)
+
+	// here (hole index pair)
+	int I0 = solState_[0];
+	int	J0 = solState_[1];
+
+	// init neighbours by copy
+	auto I1 = I0; // neighbour 1
+	auto J1 = J0; // neighbour 1
+	auto I2 = I0; // neighbour 1
+	auto J2 = J0; // neighbour 1
+
+	makeNeighbours(I1, J1, I2, J2);
 
 	// TEST VALIDITY
 
