@@ -48,8 +48,8 @@ public:
 	// peg count
     int pegCount();
 
-	// update move
-	bool updateMove();
+	// update move intent (wish)
+	bool updateMoveIntent();
 
 	// is move valid
 	bool validMove();

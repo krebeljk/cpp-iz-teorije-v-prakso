@@ -217,7 +217,7 @@ bool EBoard::validMove() {
 	return false;
 }
 
-bool EBoard::updateMove() {
+bool EBoard::updateMoveIntent() {
 	// enter at lease once
 	do {
 		if (solState_[2] < 3) // can change direction clockwise
