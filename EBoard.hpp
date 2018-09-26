@@ -51,6 +51,9 @@ public:
 	// is move valid
 	bool validMove();
 
+	// make move
+	void makeMove();
+
 };
 
 #endif

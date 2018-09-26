@@ -12,6 +12,14 @@ int main(){
 
 	std::cout << "dir vld: " << eb.validMove();
 
+	std::cout << "make move\n";
+
+	eb.updateMove();
+
+	eb.makeMove();
+
+	eb.print();
+
 
 
 // Output

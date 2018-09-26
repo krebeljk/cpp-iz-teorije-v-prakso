@@ -228,3 +228,30 @@ bool EBoard::updateMove() {
 
 	return true; // success
 }
+
+void EBoard::makeMove() {
+
+	// CREATE POINTS (indices of pegs)
+
+	// here (hole index pair)
+	int I0 = solState_[0];
+	int	J0 = solState_[1];
+
+	// init neighbours by copy
+	auto I1 = I0; // neighbour 1
+	auto J1 = J0; // neighbour 1
+	auto I2 = I0; // neighbour 1
+	auto J2 = J0; // neighbour 1
+
+	makeNeighbours(I1, J1, I2, J2);
+
+	//put peg=0 here
+	state_[I0][J0] = 0;
+
+    //set neighbours to holes=1
+	state_[I1][J1] = 1;
+	state_[I2][J2] = 1;
+
+	// lost a peg
+	pegCount_--;
+}
