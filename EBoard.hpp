@@ -56,7 +56,7 @@ public:
 
 	// update move intent (wish)
 	// is false if exhausted
-	bool updateMoveIntent();
+	bool nextValidMoveIntent();
 
 	// is move valid
 	bool validMove();
