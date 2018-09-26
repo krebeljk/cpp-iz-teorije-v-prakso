@@ -38,8 +38,8 @@ public:
 	// peg count
     int pegCount();
 
-	// increment solState_
-	void nextHole();
+	// increment solState_ (false if no more holes)
+	bool nextHole();
 
 	// is move valid
 	bool validMove();

@@ -88,7 +88,7 @@ int EBoard::pegCount() {
 }
 
 
-void EBoard::nextHole() {
+bool EBoard::nextHole() {
 
 	// set to true when hole found (state == 0)
 	bool found = false;
@@ -130,6 +130,8 @@ void EBoard::nextHole() {
 		if (found)
 			break;
 	}
+
+	return found;
 }
 
 bool EBoard::validMove() {
