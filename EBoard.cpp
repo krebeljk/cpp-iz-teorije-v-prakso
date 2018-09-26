@@ -3,13 +3,12 @@
 #include "EBoard.hpp"
 
 EBoard::EBoard() :
-		maxX_(7),
-		maxY_(7),
+		matN_(7),
 		state_()
 {
-	for (int i = 0; i < maxX_; i++)//vrsta
+	for (int i = 0; i < matN_; i++)//vrsta
 	{
-		for (int j = 0; j < maxY_; j++)//stolpec
+		for (int j = 0; j < matN_; j++)//stolpec
 		{
 
 			// SL
