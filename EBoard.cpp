@@ -4,7 +4,9 @@
 
 EBoard::EBoard() :
 		matN_(7),
-		state_()
+		state_(),
+	    solState_(),
+	    pegCount_(0)
 {
 	for (int i = 0; i < matN_; i++)//vrsta
 	{
@@ -30,6 +32,8 @@ EBoard::EBoard() :
 	}
 
 	state_[3][3] = 1;
+
+	solState_ = { 0,0,0 };
 }
 
 void EBoard::printNum() {

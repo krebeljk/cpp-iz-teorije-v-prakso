@@ -14,6 +14,16 @@ private:
 	// matrix holding state
 	std::array<row_t, 7> state_;
 
+	// solution state
+	// (I, J, dir)
+	// I - hole row 
+	// J - hole column
+	// dir - next move direction
+	std::array<int, 3> solState_;
+
+	// peg count - solution generation
+	int pegCount_;
+
 public:
 
 	// Constructor
