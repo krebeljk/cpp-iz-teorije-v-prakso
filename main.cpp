@@ -1,23 +1,13 @@
 #include "EBoard.hpp"
 #include <iostream> 
+#include <vector>
 
 int main(){
 
-	EBoard eb;
+	std::vector<EBoard> seq{EBoard()};
 
-	eb.print();
-
-
-    //std::cout << "Peg count: " << eb.pegCount() << "\n";
-
-	std::cout << "make move\n";
-
-	eb.nextValidMoveIntent();
-
-	eb.makeMove();
-
-	eb.print();
-
+	seq.back().print();
+	
 
 
 // Output

@@ -52,6 +52,9 @@ void EBoard::printNum() {
 
 void EBoard::print() {
 
+
+	std::cout << "Peg count: " << pegCount() << "\n";
+
 	for (auto &row : state_)
 	{
 		for (auto &el : row)
@@ -69,6 +72,7 @@ void EBoard::print() {
 
 		std::cout << "\n";
 	}
+
 
 }
 
