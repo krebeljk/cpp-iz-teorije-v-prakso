@@ -8,7 +8,9 @@ private:
 	int maxY_;
 	int thr_;
 
-	std::array<std::array<int, 7>, 7> state_;
+	using row_t = std::array<int, 7>;
+
+	std::array<row_t, 7> state_;
 
 public:
 	EBoard():
@@ -52,13 +54,13 @@ public:
 
 	void printNum() {
 	
-		for (int j = 0; j < maxY_; j++)
+		for (auto &row : state_)
 		{
-			for (int i = 0; i < maxX_; i++)
+			for (auto &el : row)
 			{
 
 				//std::cout << "i" << i << "j" << j << " ";
-				std::cout << state_[i][j];
+				std::cout << el;
 
 			}
 
@@ -68,18 +70,16 @@ public:
 
 	void print() {
 
-		for (int j = 0; j < maxY_; j++)
+		for (auto &row : state_)
 		{
-			for (int i = 0; i < maxX_; i++)
+			for (auto &el : row)
 			{
-				int peg = state_[i][j];
-
 				char rep = ' ';
 
-				if (peg == 0)
+				if (el == 0)
 					rep = '.';
 
-				if (peg == 1)
+				if (el == 1)
 					rep = 'o';
 
 				std::cout << rep;
@@ -95,11 +95,11 @@ public:
 
 		int count = 0;
 
-		for (int j = maxY_ - 1; j >= 0; j--)
+		for (auto &row : state_)
 		{
-			for (int i = 0; i < maxX_; i++)
+			for (auto &el : row)
 			{
-				if (state_[i][j] > -1)
+				if (el == 0)
 				{
 					count++;
 				}
