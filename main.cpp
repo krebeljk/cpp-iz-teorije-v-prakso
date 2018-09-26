@@ -8,7 +8,11 @@ int main(){
 	eb.print();
 
 
-    std::cout << "Peg count: " << eb.pegCount() << "\n";
+    //std::cout << "Peg count: " << eb.pegCount() << "\n";
+
+	eb.nextHole();
+
+
 
 // Output
 //

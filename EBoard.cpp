@@ -5,7 +5,7 @@
 EBoard::EBoard() :
 		matN_(7),
 		state_(),
-	    solState_(),
+	    solState_{ 0,0,0 },
 	    pegCount_(0)
 {
 	for (int i = 0; i < matN_; i++)//vrsta
@@ -32,8 +32,6 @@ EBoard::EBoard() :
 	}
 
 	state_[3][3] = 1;
-
-	solState_ = { 0,0,0 };
 }
 
 void EBoard::printNum() {
@@ -87,4 +85,49 @@ int EBoard::pegCount() {
 	}
 
 	return count;
+}
+
+
+void EBoard::nextHole() {
+
+	// set to true when hole found (state == 0)
+	bool found = false;
+
+	// to prevent finding current state
+	bool oldHole = true;
+
+	int& I_start = solState_[0];
+	int& J_start = solState_[1];
+
+	// move through matrix
+	for (int i = I_start; i<matN_; i++)
+	{
+		// in next row start from 0
+		if (!oldHole)
+			J_start = 0;
+
+		for (int j = J_start; j < matN_; j++)
+		{
+			if (state_[i][j] == 1 && !oldHole)
+			{
+				found = true;
+
+				// keep position
+				solState_[0] = i;
+				solState_[1] = j;
+			}
+
+			// after declining first attempt above
+			if (oldHole)
+				oldHole = false;
+
+			// stop looking after found
+			if (found)
+				break;
+		}
+
+		// stop looking after found
+		if (found)
+			break;
+	}
 }

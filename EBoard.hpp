@@ -37,7 +37,9 @@ public:
 
 	// peg count
     int pegCount();
-	
+
+	// increment solState_
+	void nextHole();
 };
 
 #endif
