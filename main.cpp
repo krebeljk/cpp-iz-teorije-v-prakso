@@ -1,6 +1,8 @@
 #include "EBoard.hpp"
 #include <iostream> 
 #include <vector>
+#include <thread>         // std::this_thread::sleep_for
+#include <chrono>         // std::chrono::seconds
 
 int main(){
 
@@ -34,8 +36,12 @@ int main(){
 		{
 			solve = false;
 		}
+
+		loops++;
+		//std::this_thread::sleep_for(std::chrono::seconds(1));
+		//seq.back().print();
 		
-		if (loops % 1000000 == 0)
+		if (loops % 10000 == 0)
 		{
 			std::cout << "loops " << loops << "\n";
 			std::cout << "moves " << ind << "\n";
