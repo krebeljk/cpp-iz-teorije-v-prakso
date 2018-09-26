@@ -31,6 +31,9 @@ private:
 	void makeNeighbours(int& I1, int& J1,
 		                int& I2, int& J2);
 
+	//count the pegs
+	int countPegs();
+
 public:
 
 	// Constructor

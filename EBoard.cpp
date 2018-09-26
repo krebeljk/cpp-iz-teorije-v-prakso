@@ -30,8 +30,10 @@ EBoard::EBoard() :
 				state_[i][j] = -1;
 		}
 	}
-
+	
 	state_[3][3] = 1;// 1-hole, 0-peg
+
+	pegCount_ = countPegs();
 }
 
 void EBoard::printNum() {
@@ -69,7 +71,7 @@ void EBoard::print() {
 
 }
 
-int EBoard::pegCount() {
+int EBoard::countPegs() {
 
 	int count = 0;
 
@@ -85,6 +87,12 @@ int EBoard::pegCount() {
 	}
 
 	return count;
+}
+
+
+int EBoard::pegCount() {
+
+	return pegCount_;
 }
 
 
