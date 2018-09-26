@@ -12,6 +12,8 @@ int main(){
 
 	eb.nextHole();
 
+	std::cout << "dir vld: " << eb.validMove();
+
 
 
 // Output

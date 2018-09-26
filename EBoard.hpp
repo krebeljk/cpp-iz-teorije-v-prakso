@@ -18,7 +18,7 @@ private:
 	// (I, J, dir)
 	// I - hole row 
 	// J - hole column
-	// dir - next move direction
+	// dir - current move direction
 	std::array<int, 3> solState_;
 
 	// peg count - solution generation
@@ -40,6 +40,11 @@ public:
 
 	// increment solState_
 	void nextHole();
+
+	// is move valid
+	bool validMove();
+
+
 };
 
 #endif

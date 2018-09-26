@@ -31,7 +31,7 @@ EBoard::EBoard() :
 		}
 	}
 
-	state_[3][3] = 1;
+	state_[3][3] = 1;// 1-hole, 0-peg
 }
 
 void EBoard::printNum() {
@@ -131,3 +131,72 @@ void EBoard::nextHole() {
 			break;
 	}
 }
+
+bool EBoard::validMove() {
+
+	// CREATE POINTS (indices of pegs)
+
+	// here (hole index pair)
+	int I0 = solState_[0];
+	int	J0 = solState_[1];
+
+	// init neighbours by copy
+	auto I1 = I0; // neighbour 1
+	auto J1 = J0; // neighbour 1
+	auto I2 = I0; // neighbour 1
+	auto J2 = J0; // neighbour 1
+
+	// set neighbour points in current direction
+	switch (solState_[2])
+	{
+	case 0:	// dir 0: +J (next col)
+		J1++;
+	    J2 += 2;
+		break;
+	case 1:	// dir 1: -I (prev row)
+		I1--;
+		I2 -= 2;
+		break;
+	case 2:	// dir 2: -J (prev col)
+		J1--;
+		J2 -= 2;
+		break;
+	case 3:	// dir 3: +I (next row)
+		I1++;
+		I2 += 2;
+		break;
+	default:
+		std::cout << "ERROR: solState_[2] out of bounds in EBoard::validateCurrentDir()\n";
+		break;
+	}
+
+	// TEST VALIDITY
+
+	// invalid move if out of matrix
+	//point1
+	if (I1 < 0 || !(I1 < matN_))
+		return false;
+	if (J1 < 0 || !(J1 < matN_))
+		return false;
+	//point1
+	if (I2 < 0 || !(I2 < matN_))
+		return false;
+	if (J2 < 0 || !(J2 < matN_))
+		return false;
+
+	// invalid move if off-board
+	if (state_[I1][J1] == -1)
+		return false;
+	if (state_[I2][J2] == -1)
+		return false;
+
+	// only valid if both neighbours are pegs
+	// 0-peg
+	// 1-hole
+	if (state_[I1][J1] == 0 && state_[I2][J2] == 0)
+		return true;
+
+	//else invalid
+	return false;
+}
+
