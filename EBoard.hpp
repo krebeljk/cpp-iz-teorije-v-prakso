@@ -55,6 +55,7 @@ public:
     int pegCount();
 
 	// update move intent (wish)
+	// is false if exhausted
 	bool updateMoveIntent();
 
 	// is move valid
@@ -63,8 +64,9 @@ public:
 	// make move
 	void makeMove();
 
+	// exhausted
+	bool exhausted();
 	
-
 };
 
 #endif

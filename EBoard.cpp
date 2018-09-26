@@ -258,10 +258,15 @@ void EBoard::makeMove() {
 	//put peg=0 here
 	state_[I0][J0] = 0;
 
-    //set neighbours to holes=1
+	//set neighbours to holes=1
 	state_[I1][J1] = 1;
 	state_[I2][J2] = 1;
 
 	// lost a peg
 	pegCount_--;
+}
+
+bool EBoard::exhausted() {
+
+	return exhausted_;
 }
