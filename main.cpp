@@ -3,8 +3,12 @@
 #include <vector>
 #include <thread>         // std::this_thread::sleep_for
 #include <chrono>         // std::chrono::seconds
+#include "Timer.h"
 
 int main(){
+	
+	//start stopwatch
+	Timer t;
 
 	std::array<EBoard,32> seq;
 
@@ -60,7 +64,7 @@ int main(){
 		st.print();
 	}
 	
-
+	std::cout << "Time elapsed: " << t.elapsed()/60 << " minutes\n";
 
 // Output
 //
