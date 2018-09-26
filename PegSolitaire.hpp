@@ -79,6 +79,9 @@ public:
 				if (peg == 0)
 					rep = '.';
 
+				if (peg == 1)
+					rep = 'o';
+
 				std::cout << rep;
 
 			}
