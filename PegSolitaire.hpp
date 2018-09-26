@@ -8,7 +8,7 @@ private:
 	int maxY_;
 	int thr_;
 
-	std::array<std::array<int, 9>, 9> state_;
+	std::array<std::array<int, 7>, 7> state_;
 
 public:
 	EBoard():
@@ -52,7 +52,7 @@ public:
 
 	void printNum() {
 	
-		for (int j = maxY_-1; j >= 0; j--)
+		for (int j = 0; j < maxY_; j++)
 		{
 			for (int i = 0; i < maxX_; i++)
 			{
@@ -68,7 +68,7 @@ public:
 
 	void print() {
 
-		for (int j = maxY_ - 1; j >= 0; j--)
+		for (int j = 0; j < maxY_; j++)
 		{
 			for (int i = 0; i < maxX_; i++)
 			{
