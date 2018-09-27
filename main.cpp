@@ -46,10 +46,10 @@ int main(){
 		//std::this_thread::sleep_for(std::chrono::seconds(1));
 		//seq.back().print();
 		
-		if (loops % 100000 == 0)
+		if (loops % 10000000 == 0)
 		{
-			std::cout << "loops " << loops << "\n";
-			std::cout << "moves " << ind << "\n";
+			std::cout << loops << "\n";
+			std::cout << ind << "\n";
 		}
 
 		if (seq[ind].pegCount() == 1)
