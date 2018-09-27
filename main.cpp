@@ -29,12 +29,15 @@ int main(){
 	{
 		if(seq[ind].nextValidMoveIntent())
 		{ 
+			std::cout << "deeper from lvl: " << ind << "\n";
 			ind++;
 			seq[ind] = seq[ind-1];
 			seq[ind].makeMove();
 		}
 		else if (ind>0)
 		{
+
+			std::cout << "back from lvl: " << ind << "\n";
 			ind--;
 		}
 		else
@@ -42,7 +45,12 @@ int main(){
 			solve = false;
 		}
 
+		seq[ind].print();
+
 		loops++;
+
+		if (loops > 50)
+			break;
 
 
 
