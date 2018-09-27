@@ -43,27 +43,13 @@ int main(){
 		}
 
 		loops++;
-		//std::this_thread::sleep_for(std::chrono::seconds(1));
-		//seq.back().print();
-		
-		if (loops % 10000000 == 0)
-		{
-			std::cout << loops << "\n";
-			std::cout << ind << "\n";
-		}
 
-		if (seq[ind].pegCount() == 1)
-		{
-			break;
-		}
+
+
 
 	}
 
-	for (auto &st : seq)
-	{
-		st.print();
-	}
-	
+
 	std::cout << "Time elapsed: " << t.elapsed()/60 << " minutes\n";
 
 // Output
