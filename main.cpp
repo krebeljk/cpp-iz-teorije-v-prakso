@@ -1,81 +1,71 @@
 #include "EBoard.hpp"
-#include <iostream> 
-#include <vector>
-#include <thread>         // std::this_thread::sleep_for
-#include <chrono>         // std::chrono::seconds
 #include "Timer.h"
+#include <chrono> // std::chrono::seconds
+#include <iostream>
+#include <thread> // std::this_thread::sleep_for
+#include <vector>
 
-int main(){
-	
-	//start stopwatch
-	Timer t;
+int main() {
 
-	std::array<EBoard,32> seq;
+  // start stopwatch
+  Timer t;
 
-	// state index
-	int ind = 0;
+  std::array<EBoard, 32> seq;
 
-	seq[ind] = EBoard();
+  // state index
+  int ind = 0;
 
-	seq[ind].print();
+  seq[ind] = EBoard();
 
-	// solution control
-	bool solve = true;
+  seq[ind].print();
 
-	// count loops
-	int loops = 0;
+  // solution control
+  bool solve = true;
 
-	while (solve)
-	{
-		if(seq[ind].nextValidMoveIntent())
-		{ 
-			ind++;
-			seq[ind] = seq[ind-1];
-			seq[ind].makeMove();
-		}
-		else if (ind>0)
-		{
-			ind--;
-		}
-		else
-		{
-			solve = false;
-		}
+  // count loops
+  int loops = 0;
 
-		loops++;
-		//std::this_thread::sleep_for(std::chrono::seconds(1));
-		//seq.back().print();
-		
-		if (loops % 10000000 == 0)
-		{
-			std::cout << loops << "\n";
-			std::cout << ind << "\n";
-		}
+  while (solve) {
+    if (seq[ind].nextValidMoveIntent()) {
+      ind++;
+      seq[ind] = seq[ind - 1];
+      seq[ind].makeMove();
+    } else if (ind > 0) {
+      ind--;
+    } else {
+      solve = false;
+    }
 
-		if (seq[ind].pegCount() == 1)
-		{
-			break;
-		}
+    loops++;
+    // std::this_thread::sleep_for(std::chrono::seconds(1));
+    // seq.back().print();
 
-	}
+    if (loops % 10000000 == 0) {
+      std::cout << loops << "\n";
+      std::cout << ind << "\n";
+    }
 
-	for (auto &st : seq)
-	{
-		st.print();
-	}
-	
-	std::cout << "Time elapsed: " << t.elapsed()/60 << " minutes\n";
+    if (seq[ind].pegCount() == 1) {
+      break;
+    }
+  }
 
-// Output
-//
-//   ···
-//   ···
-// ·······
-// ···o···
-// ·······
-//   ···
-//   ···
-//
-// Peg count: 32  
+  for (auto &st : seq) {
+    st.print();
+  }
+
+  std::cout << "Time elapsed: " << t.elapsed() / 60 << " minutes\n";
+
+  // Output
+  //
+  //   ···
+  //   ···
+  // ·······
+  // ···o···
+  // ·······
+  //   ···
+  //   ···
+  //
+  // Peg count: 32
   return 0;
 }

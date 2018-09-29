@@ -4,69 +4,64 @@
 #include <array>
 #include <iostream>
 
-class EBoard
-{
+class EBoard {
 private:
-	int matN_; // matrix size in x
-	
-	using row_t = std::array<int, 7>;
+  int matN_; // matrix size in x
 
-	// matrix holding state
-	std::array<row_t, 7> state_;
+  using row_t = std::array<int, 7>;
 
-	// solution state
-	// (I, J, dir)
-	// I - hole row 
-	// J - hole column
-	// dir - current move direction
-	std::array<int, 3> solState_;
+  // matrix holding state
+  std::array<row_t, 7> state_;
 
-	// peg count - solution generation
-	int pegCount_;
+  // solution state
+  // (I, J, dir)
+  // I - hole row
+  // J - hole column
+  // dir - current move direction
+  std::array<int, 3> solState_;
 
-	// exhausted possible moves
-	bool exhausted_;
+  // peg count - solution generation
+  int pegCount_;
 
-	// Private methods
+  // exhausted possible moves
+  bool exhausted_;
 
-	// increment solState_ (false if no more holes)
-	bool nextHole();
+  // Private methods
 
-	// get neighbour indices based on solution state
-	void makeNeighbours(int& I1, int& J1,
-		                int& I2, int& J2);
+  // increment solState_ (false if no more holes)
+  bool nextHole();
 
-	//count the pegs
-	int countPegs();
+  // get neighbour indices based on solution state
+  void makeNeighbours(int &I1, int &J1, int &I2, int &J2);
 
-	// is move valid
-	bool validMove();
+  // count the pegs
+  int countPegs();
 
+  // is move valid
+  bool validMove();
 
 public:
+  // Constructor
+  EBoard();
 
-	// Constructor
-	EBoard();
+  // print numbers
+  void printNum();
 
-	// print numbers
-	void printNum();
-	
-	// print characters
-	void print();
+  // print characters
+  void print();
 
-	// peg count
-    int pegCount();
+  // peg count
+  int pegCount();
 
-	// update move intent (wish)
-	// is false if exhausted
-	bool nextValidMoveIntent();
-	
-	// make move
-	void makeMove();
+  // update move intent (wish)
+  // is false if exhausted
+  bool nextValidMoveIntent();
 
-	// exhausted
-	bool exhausted();
-	
+  // make move
+  void makeMove();
+
+  // exhausted
+  bool exhausted();
 };
 
 #endif
